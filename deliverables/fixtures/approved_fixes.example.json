@@ -1,0 +1,14 @@
+{
+  "_comment": "Example: state after a reviewer approved the F-40219 regression test. Run with --approvals fixtures/approved_fixes.example.json to see the same bump auto-accept.",
+  "approved": [
+    {
+      "cve": "CVE-2020-14343",
+      "package": "PyYAML",
+      "to_version": "5.4.1",
+      "test_fingerprint": "6999f764d2b70853672a3b12f358638b95c8df91efe1d0519e1e97d6e078fdb2",
+      "approved_by": "report-worker owner (mock)",
+      "approved_at": "2026-10-12T09:00:00Z",
+      "review_ref": "report-worker#231"
+    }
+  ]
+}

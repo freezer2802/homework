@@ -1,0 +1,72 @@
+{
+  "F-40218": {
+    "cve": "CVE-2022-1471",
+    "severity": "critical",
+    "service": "inventory-api",
+    "outcome": "ROUTE_FOR_REVIEW",
+    "proposals": [
+      {
+        "proposal_id": "F-40218-A",
+        "finding_id": "F-40218",
+        "state": "ROUTE_FOR_REVIEW",
+        "reasons": [
+          "Q1 changes production code (behavior change possible): ConfigLoader.java",
+          "Q2 major version change 1.30 -> 2.0",
+          "Q3 overrides a transitive/parent-managed version",
+          "Q5 code using the dependency is not covered by tests",
+          "Q9 only coverage is an agent-written test no human has approved yet (fingerprint 85178f88708f); approve once, repeats can auto-accept"
+        ]
+      },
+      {
+        "proposal_id": "F-40218-B",
+        "finding_id": "F-40218",
+        "state": "REJECT",
+        "reasons": [
+          "R1 deletes a test: services/inventory-api/src/test/java/com/example/inventory/ConfigLoaderIntegrationTest.java"
+        ]
+      }
+    ]
+  },
+  "F-40219": {
+    "cve": "CVE-2020-14343",
+    "severity": "high",
+    "service": "report-worker",
+    "outcome": "ROUTE_FOR_REVIEW",
+    "proposals": [
+      {
+        "proposal_id": "F-40219-A",
+        "finding_id": "F-40219",
+        "state": "ROUTE_FOR_REVIEW",
+        "reasons": [
+          "Q9 only coverage is an agent-written test no human has approved yet (fingerprint 6999f764d2b7); approve once, repeats can auto-accept"
+        ]
+      }
+    ]
+  },
+  "F-40220": {
+    "cve": "CVE-2015-6420",
+    "severity": "high",
+    "service": "inventory-api",
+    "outcome": "ROUTE_FOR_REVIEW",
+    "proposals": [
+      {
+        "proposal_id": "F-40220-A",
+        "finding_id": "F-40220",
+        "state": "ROUTE_FOR_REVIEW",
+        "reasons": [
+          "Q4 scanner says no fix, advisory says ['3.2.2']: source data disagree",
+          "Q5 code using the dependency is not covered by tests",
+          "Q6 no regression test proven red-before/green-after"
+        ]
+      },
+      {
+        "proposal_id": "F-40220-B",
+        "finding_id": "F-40220",
+        "state": "REJECT",
+        "reasons": [
+          "R6 rewrites production code that no test covers, with no characterization test"
+        ]
+      }
+    ]
+  }
+}

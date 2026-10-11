@@ -1,0 +1,112 @@
+{
+  "_comment": "MOCK. Structure is the deliverable. One document per (CVE, service, environment). Every field points to a system of record, not to the agent.",
+  "attestation_id": "ATT-2026-10-12-F-40219-prod",
+  "schema_version": "1.0",
+  "claim": "CVE-2020-14343 remediated in report-worker production on 2026-10-12",
+  "vulnerability": {
+    "cve": "CVE-2020-14343",
+    "finding_id": "F-40219",
+    "package": "PyYAML",
+    "vulnerable_versions": "< 5.4",
+    "fixed_in": "5.4",
+    "source": "advisory DB lookup (mock reference)"
+  },
+  "1_remediated_in_production": {
+    "service": "report-worker",
+    "environment": "production",
+    "remediated_at": "2026-10-12T14:32:09Z",
+    "deployment_id": "deploy-rw-8812",
+    "deployed_artifact": {
+      "image": "registry.internal/report-worker",
+      "digest": "sha256:9f2c...e41a",
+      "version": "0.2.4"
+    },
+    "change": {
+      "pr": "report-worker#231",
+      "commit": "b7d41e0",
+      "diff": "PyYAML==5.3.1 -> PyYAML==5.4.1 in requirements.lock"
+    },
+    "sbom_of_deployed_artifact": {
+      "format": "CycloneDX 1.5",
+      "ref": "sbom/report-worker@sha256:9f2c...e41a.json",
+      "PyYAML": "5.4.1"
+    }
+  },
+  "2_vulnerable_artifact_not_running": {
+    "observed_at": "2026-10-13T00:00:00Z",
+    "method": "runtime inventory: image digests of all running pods in prod clusters",
+    "running_digests": [
+      "sha256:9f2c...e41a"
+    ],
+    "previous_vulnerable_digest": "sha256:41aa...07bd",
+    "previous_digest_running_count": 0,
+    "rescan": {
+      "scanner": "internal-composition-scan",
+      "run_id": "scan-2026-10-13-0300",
+      "CVE-2020-14343": "not found"
+    },
+    "admission_policy": "deny images whose SBOM has PyYAML < 5.4 (policy rev 14)"
+  },
+  "3_gates_passed": {
+    "harness_decision": {
+      "state": "ACCEPT",
+      "policy_version": "remediation-harness@1.0",
+      "reasons": [
+        "A all gates proven ..., agent test matches a human-approved fingerprint"
+      ],
+      "audit_log_entry_hash": "3c0d...a9f1"
+    },
+    "gates": [
+      {
+        "gate": "lockfile reproducible from pip-compile",
+        "result": "pass",
+        "ci_run": "ci-55120"
+      },
+      {
+        "gate": "build + existing tests",
+        "result": "pass",
+        "ci_run": "ci-55120"
+      },
+      {
+        "gate": "regression test fails on 5.3.1, passes on 5.4.1",
+        "result": "pass",
+        "ci_run": "ci-55121"
+      },
+      {
+        "gate": "agent-written regression test approved by a human (fingerprint 6999f764d2b7)",
+        "result": "pass",
+        "ref": "approved_fixes.json entry, review report-worker#231"
+      },
+      {
+        "gate": "no protected paths / no test removed",
+        "result": "pass",
+        "ci_run": "ci-55120"
+      },
+      {
+        "gate": "canary 10% for 30 min, error rate within SLO",
+        "result": "pass",
+        "deploy_step": "deploy-rw-8812/canary"
+      }
+    ],
+    "human_approvals": [
+      {
+        "what": "agent-written regression test for CVE-2020-14343 / PyYAML 5.4.1",
+        "by": "report-worker owner (mock)",
+        "at": "2026-10-12T09:00:00Z",
+        "review_ref": "report-worker#231"
+      }
+    ],
+    "human_approvals_note": "First occurrence: the agent's test is reviewed once. Later repos applying the same fix with the same test fingerprint cite this approval instead of a new one.",
+    "separation_of_duties": "proposal author = agent; merge = pipeline bot under policy; no human self-approval possible"
+  },
+  "integrity": {
+    "generated_by": "attestation-service",
+    "generated_at": "2026-10-13T00:05:00Z",
+    "signature": {
+      "alg": "ecdsa-p256 (sigstore)",
+      "value": "MEUCIQ...",
+      "key_id": "attest-prod-2026"
+    },
+    "audit_chain_head": "3c0d...a9f1"
+  }
+}

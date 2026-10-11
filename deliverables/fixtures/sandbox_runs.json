@@ -1,0 +1,43 @@
+{
+  "_comment": "Stubbed sandbox results per proposal. In production these come from CI in an isolated runner, never from the agent.",
+  "F-40218-A": {
+    "build_passes": true,
+    "existing_tests_pass": true,
+    "lockfile_reproducible": true,
+    "regression_test_red_to_green": true,
+    "changed_code_covered_by_tests": false,
+    "covered_by_existing_tests": false
+  },
+  "F-40218-B": {
+    "build_passes": true,
+    "existing_tests_pass": true,
+    "lockfile_reproducible": true,
+    "regression_test_red_to_green": null,
+    "changed_code_covered_by_tests": false,
+    "covered_by_existing_tests": false
+  },
+  "F-40219-A": {
+    "build_passes": true,
+    "existing_tests_pass": true,
+    "lockfile_reproducible": true,
+    "regression_test_red_to_green": true,
+    "changed_code_covered_by_tests": true,
+    "covered_by_existing_tests": false
+  },
+  "F-40220-A": {
+    "build_passes": true,
+    "existing_tests_pass": true,
+    "lockfile_reproducible": true,
+    "regression_test_red_to_green": null,
+    "changed_code_covered_by_tests": false,
+    "covered_by_existing_tests": false
+  },
+  "F-40220-B": {
+    "build_passes": true,
+    "existing_tests_pass": true,
+    "lockfile_reproducible": true,
+    "regression_test_red_to_green": null,
+    "changed_code_covered_by_tests": false,
+    "covered_by_existing_tests": false
+  }
+}
