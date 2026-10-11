@@ -44,7 +44,7 @@ Output:
 ### What is stubbed
 
 - **Agent.** `agent.propose()` returns hand-written diffs per finding type. It deliberately
-  includes one bad shortcut (deleting a failing test) so the policy has something to refuse.
+  includes two bad shortcut (deleting a failing test and rewriting untested code) so the policy has something to refuse.
   Replace with a model call; the contract is "return `Proposal` objects", nothing else.
 - **Sandbox runs.** `fixtures/sandbox_runs.json` stands in for an isolated CI run of each
   proposal. A proposal with no entry gets no evidence and can never be accepted.
