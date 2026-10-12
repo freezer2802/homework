@@ -7,6 +7,7 @@
 | 3. Evidence artifact for the auditor | `evidence/` |
 | 4. Failure mode analysis | `FAILURE-MODES.md` |
 | 5. Scaling from 2 to 300 repos | `DESIGN.md`, last section |
+| Note on AI tools and time spent | `AI-USAGE.md` |
 
 ## Harness
 
